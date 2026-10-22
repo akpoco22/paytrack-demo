@@ -1,0 +1,38 @@
+# Extol Global Service — Apache hardening
+# Place this file in the Hostinger public_html root (or project root).
+
+# No directory listings
+Options -Indexes
+
+# Block direct access to sensitive files
+<FilesMatch "(\.db|\.db-journal|\.db-wal|\.db-shm|\.sqlite3?|\.sql|\.bak|~)$">
+    Require all denied
+</FilesMatch>
+
+# Block config + tooling directories
+RedirectMatch 403 ^/(config|src|includes)(/|$)
+
+# Block the PHP session settings file from direct download
+<FilesMatch "^\.user\.ini$">
+    Require all denied
+</FilesMatch>
+
+# Block dev / test scripts if they ever get uploaded by accident
+<FilesMatch "^(seed|migrate|migrate-phase[0-9]+|setup|setup-sqlite|api-test|mail-test|sms-test)\.php$">
+    Require all denied
+</FilesMatch>
+
+# Force HTTPS (proxy-safe)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

@@ -1,0 +1,20 @@
+# Deployment Archives & Staging
+deploy-staging/
+extol-deploy.zip
+*.pdf
+*.backup.*
+*.tar.gz
+*.jpeg
+*.jpg.backup
+logo-extol.backup.png
+
+# Helper scripts
+generate_paytrack_*.py
+
+# Environment & Logs
+.env
+logs/*.log
+
+# OS Metadata
+.DS_Store
+Thumbs.db

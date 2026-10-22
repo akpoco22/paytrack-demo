@@ -1,0 +1,1 @@
+Place icon-192.png (192x192) and icon-512.png (512x512) here. These are the Extol Global Service app icons used by the PWA manifest.
