@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Admin data export page — one-click full company backup as Excel.
  * The download itself streams from export.php?token=... (admin + CSRF).

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * SMS test page (admin only) — verify Termii settings end-to-end.
  * PayTrack

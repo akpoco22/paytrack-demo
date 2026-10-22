@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Mail test page (admin only) — verify SMTP settings end-to-end.
  * PayTrack

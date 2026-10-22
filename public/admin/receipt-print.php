@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Print-friendly receipt page — PayTrack.
  * Opens with ?id=<receipt_id>, renders a clean A4-ish receipt with a
